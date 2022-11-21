@@ -7,11 +7,7 @@ pipeline {
                 echo "Hello World"
             }
         }
-        stage('Checkout') {
-            steps {
-              checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'DevOps-Token', url: 'https://github.com/Apurva14A/project_74.git']]])
-            }
-        }
+        
         stage('build') {
             steps {
                 echo "terraform init"
