@@ -10,8 +10,8 @@ pipeline {
         
         stage('build') {
             steps {
-                echo "terraform init"
-                echo "Job id -${BUILD_ID}"
+                sh 'echo "This is a build for blogging infrastructure."'
+               archiveArtifacts allowEmptyArchive: true, artifacts: '*.tf', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
                
             }
         }
