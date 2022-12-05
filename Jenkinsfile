@@ -2,24 +2,29 @@ pipeline {
     agent any
 
     stages {
-        stage('Cleanup') {
+        stage('Checkout') {
             steps {
-                echo "Hello World"
+               checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Apurva14A/project_74.git']]])
             }
         }
         
-        stage('build') {
+        stage('terraform init') {
             steps {
-                sh 'echo "This is a build for blogging infrastructure."'
-               archiveArtifacts allowEmptyArchive: true, artifacts: '*.tf', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
-               
+                sh 'terraform init' 
             }
         }
-        stage('Testing') {
-            steps {
-                echo "Testing"
-               
-            }
-        }
+
+        
+        stage (“terraform Action”) {
+
+        steps {
+
+            echo “Terraform action is –> ${action}”
+
+            sh (‘terraform ${action} –auto-approve’)
+
+           }
+
+           }
     }
 }
