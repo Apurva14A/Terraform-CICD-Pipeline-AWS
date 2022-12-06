@@ -23,6 +23,12 @@ pipeline {
             }
         }
 
+        stage('terraform plan') {
+            steps {
+                sh 'terraform plan' 
+            }
+        }
+
         
         stage ('terraform Action') {
 
