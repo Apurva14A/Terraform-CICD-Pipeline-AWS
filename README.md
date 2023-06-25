@@ -1,5 +1,5 @@
 
-# INTERGRATION OF JENKINS(followed Jenkins as a code practices)with TERRAFORM(Followed IAC practices) and AWS Cloud
+# INTERGRATION OF JENKINS(followed Jenkins as a code practices)with TERRAFORM(followed IAC practices) and AWS Cloud
 **==========================================================================================================**
 
 
